@@ -1,2 +1,5 @@
-# theme_switch
-Pure CSS, HTML, JS for dark mode theme switching
+# Theme Switch
+
+## Switch between light, dark, solar themes
+
+SASS, HTML, JS for dark mode theme switching
