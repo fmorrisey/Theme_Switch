@@ -1,5 +1,5 @@
-# Theme Switch
+# Dynamic Theme Switch
 
 ## Switch between light, dark, solar themes
 
-SASS, HTML, JS for dark mode theme switching
+Purse CSS, HTML, JS for dynamic mode theme switching
