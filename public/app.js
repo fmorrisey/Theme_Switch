@@ -5,26 +5,41 @@ const lightButton = document.getElementById("lightId");
 const solarButton = document.getElementById("solarId");
 const body = document.body;
 
-console.log(darkButton);
-console.log(lightButton);
-console.log(solarButton);
-console.log(body);
+// Apply the cached theme on reload
+const theme = localStorage.getItem("theme");
+const isSolar = localStorage.getItem("isSolar");
+
+if (theme) {
+  body.classList.add(theme);
+  isSolar && body.classList.add("solar");
+}
 
 // Button Event Handlers
 darkButton.onclick = () => {
-  /* Looks for classList on the body
-  body.classList.remove('light'); //removes a theme
-  body.classList.add('dark'); //adds a theme */
-
-  //One line of code alternative
   body.classList.replace("light", "dark");
-  console.log("I've been clicked captain!");
+  localStorage.setItem("theme", "dark");
 };
 
 lightButton.onclick = () => {
   body.classList.replace("dark", "light");
+  localStorage.setItem("theme", "light");
 };
 
 solarButton.onclick = () => {
-  body.classList.replace("dark", "light");
+  if (body.classList.contains("solar")) {
+    body.classList.remove("solar");
+    solarButton.style.cssText = `
+      --bg-color: var(--yellow);
+      `;
+    solarButton.innerText = "solarize";
+
+    localStorage.removeItem("isSolar");
+  } else {
+    solarButton.style.cssText = `
+      --bg-solar: white;
+      `;
+    body.classList.add("solar");
+    solarButton.innerText = "normalize";
+    localStorage.setItem("isSolar", true);
+  }
 };
