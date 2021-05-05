@@ -1,4 +1,3 @@
-/* Color Vars */
 body {
   margin: 0;
   padding: 0;
@@ -20,6 +19,7 @@ a {
   text-decoration: none;
 }
 
+/* NAVBAR */
 .navbar {
   height: 5vw;
   width: 100%;
@@ -32,6 +32,7 @@ a {
   justify-content: space-evenly;
   height: 100%;
 }
+/* DROPDOWN */
 
 .dropdown {
   position: absolute;
@@ -72,6 +73,18 @@ a {
   margin-right: 10px;
 }
 
+#darkId::before {
+  background: #2a2e35;
+}
+
+#lightId::before {
+  background: #ffffff;
+}
+
+#solarId::before {
+  background: var(--bg-solar);
+}
+
 .has-dropdown:focus-within .dropdown {
   opacity: 1;
   pointer-events: auto;
@@ -89,6 +102,11 @@ header {
 
 .logo {
   width: 12vw;
+}
+
+.logo:hover {
+  animation: color-rotate 1s;
+  animation-iteration-count: infinite;
 }
 
 :root {
@@ -143,14 +161,11 @@ header {
   --gray6: #003d4c;
 }
 
-#darkId::before {
-  background: #2a2e35;
-}
-
-#lightId::before {
-  background: #ffffff;
-}
-
-#solarId::before {
-  background: var(--bg-solar);
+@keyframes color-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
